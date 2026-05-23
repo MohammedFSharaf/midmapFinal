@@ -59,6 +59,8 @@ class CenterController extends Controller
             'facebook_url' => 'nullable|string',
             'twitter_url' => 'nullable|string',
             'overview' => 'nullable|string',
+            'latitude' => 'nullable|string',
+            'longitude' => 'nullable|string',
         ] );
         if($request->hasFile('center_logo') && $request->file('center_logo')->isValid()){
             $center_logo = $request->file('center_logo')->store('/','files');
@@ -84,6 +86,8 @@ class CenterController extends Controller
             'facebook_url' => $request->facebook_url,
             'twitter_url' => $request->twitter_url,
             'overview' => $request->overview,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
         ]);
 
         $notification = trans('Created Successfully');
@@ -125,6 +129,8 @@ class CenterController extends Controller
             'facebook_url' => 'nullable|string',
             'twitter_url' => 'nullable|string',
             'overview' => 'nullable|string',
+            'latitude' => 'nullable|string',
+            'longitude' => 'nullable|string',
         ]);
         $validated['center_logo']= $center->center_logo;
         if($request->hasFile('center_logo') && $request->file('center_logo')->isValid()){

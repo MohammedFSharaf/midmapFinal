@@ -112,12 +112,12 @@
                     <div class="p-left">
                         <div class="logo">
                             <a href="/">
-                                <img src="{{ asset('assets/images/logos/logo-blue.svg') }}" alt />
+                                <img src="{{ asset('assets/images/logos/a1.PNG') }}" alt />
                             </a>
                         </div>
                         <div class="m-logo">
                             <a href="/">
-                                <img src="{{ asset('assets/images/logos/m-logo.svg') }}" alt />
+                                <img src="{{ asset('assets/images/logos/a1.PNG') }}" alt />
                             </a>
                         </div>
                     </div>
@@ -154,7 +154,7 @@
                 <i class="fa-sharp fa-solid fa-xmark"></i>
             </button>
             <div class="logo">
-                <img src="{{ asset('assets/images/logos/logo-blue.svg') }}" alt />
+                <img src="{{ asset('assets/images/logos/a1.PNG') }}" alt />
             </div>
             <ul class="main-nav">
 
@@ -482,7 +482,7 @@
             <div class="footer-m-wrap">
                 <div class="f-widget widget-1">
                     <div class="logo">
-                        <img src="{{ asset('assets/images/logos/logo-blue.svg') }}" alt />
+                        <img src="{{ asset('assets/images/logos/a1.PNG') }}" alt />
                     </div>
                     <ul class="f-menu">
                         <li><a href="products.html">Track Order</a></li>

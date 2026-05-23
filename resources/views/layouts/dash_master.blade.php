@@ -12,7 +12,7 @@
           </ul>
         </div>
         <ul class="navbar-nav navbar-right">
-          <li class="dropdown dropdown-list-toggle"><a target="_blank" href=" " class="nav-link nav-link-lg"><i class="fas fa-home"></i> {{__('Visit Website')}}</i></a>
+          <li class="dropdown dropdown-list-toggle"><a target="_blank" href="{{ route('site.show')}}" class="nav-link nav-link-lg"><i class="fas fa-home"></i> {{__('Visit Website')}}</i></a>
 
           </li>
 

@@ -50,6 +50,8 @@ class SettingController extends Controller
             'facebook_url' => 'nullable|string',
             'twitter_url' => 'nullable|string',
             'overview' => 'nullable|string',
+            'latitude' => 'nullable|string',
+            'longitude' => 'nullable|string',
         ]);
         $validated['center_logo']= $setting->center_logo;
         if($request->hasFile('center_logo') && $request->file('center_logo')->isValid()){

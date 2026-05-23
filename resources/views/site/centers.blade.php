@@ -122,12 +122,12 @@
                     <div class="p-left">
                         <div class="logo">
                             <a href="/">
-                                <img src="{{ asset('assets/images/logos/logo-blue.svg') }}" alt />
+                                <img src="{{ asset('assets/images/logos/a1.PNG') }}" alt />
                             </a>
                         </div>
                         <div class="m-logo">
                             <a href="/">
-                                <img src="{{ asset('assets/images/logos/m-logo.svg') }}" alt />
+                                <img src="{{ asset('assets/images/logos/a1.PNG') }}" alt />
                             </a>
                         </div>
                     </div>
@@ -164,7 +164,7 @@
                 <i class="fa-sharp fa-solid fa-xmark"></i>
             </button>
             <div class="logo">
-                <img src="{{ asset('assets/images/logos/logo-blue.svg') }}" alt />
+                <img src="{{ asset('assets/images/logos/a1.PNG') }}" alt />
             </div>
             <ul class="main-nav">
 
@@ -244,6 +244,8 @@
                     </div>
                 </div>
             </form>
+            <div id="map" style="height: 400px;"></div>
+
             <div class="row">
 
                 <div class="col-lg-12">
@@ -330,7 +332,7 @@
             <div class="footer-m-wrap">
                 <div class="f-widget widget-1">
                     <div class="logo">
-                        <img src="{{ asset('assets/images/logos/logo-blue.svg') }}" alt />
+                        <img src="{{ asset('assets/images/logos/a1.PNG') }}" alt />
                     </div>
                     <ul class="f-menu">
                         <li><a href="products.html">Track Order</a></li>
@@ -425,6 +427,38 @@
             openModal();
         @endif
     </script>
+   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<div id="map" style="height: 500px;"></div>
+
+<script>
+    var map = L.map('map').setView([31.5, 34.5], 10); // مركز افتراضي
+
+    // طبقة OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // البيانات جاية من Laravel
+    var centers = @json($centers);
+
+    centers.forEach(function(center) {
+        if(center.latitude && center.longitude) {
+            // إضافة الماركر
+            var marker = L.marker([center.latitude, center.longitude]).addTo(map);
+
+            // محتوى البوب أب
+            var popupContent = `
+                <b>${center.center_name}</b><br>
+                <a href="/center/${center.id}">عرض التفاصيل</a>
+            `;
+
+            marker.bindPopup(popupContent);
+        }
+    });
+</script>
+
 </body>
 
 </html>

@@ -133,6 +133,20 @@
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
+                                                                                <label for="">{{ __('longitude') }}</label>
+                                                                                <input type="text" name="longitude" class="form-control"
+                                                                                    value="{{ old('longitude', $setting->longitude ?? '' ) }}">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label for="">{{ __('latitude') }}</label>
+                                                                                <input type="text" name="latitude" class="form-control"
+                                                                                    value="{{ old('latitude', $setting->latitude ?? '' ) }}">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
                                                                                 <label for="">{{ __('Default Currency') }}</label>
                                                                                 <select name="currency_id" class="form-control select2">
                                                                                     <option value="">{{ __('Select Default Currency') }}</option>

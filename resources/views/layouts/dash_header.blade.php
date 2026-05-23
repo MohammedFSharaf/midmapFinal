@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <link rel="shortcut icon"  href=" "  type="image/x-icon">
+   <link rel="shortcut icon"  href=""  type="image/x-icon">
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   @yield('title')

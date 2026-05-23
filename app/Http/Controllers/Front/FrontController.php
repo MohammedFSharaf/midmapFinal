@@ -10,6 +10,7 @@ use App\Models\Message;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class FrontController extends Controller
 {
@@ -77,7 +78,12 @@ class FrontController extends Controller
             'center_id' => 'required',
         ] );
 
+        $email = Center::find($request->center_id)->user->email;
 
+        Mail::raw('Check reservations on the dashboard http://127.0.0.1:8000/order', function ($message) use ($email) {
+                $message->to($email)
+                        ->subject('new order');
+            });
         Order::create($validated);
 
         return redirect()->back()->with('success', 'Your order has been sent!');
