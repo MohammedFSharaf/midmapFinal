@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Center;
 
 class ServiceController extends Controller
 {
@@ -57,6 +58,7 @@ class ServiceController extends Controller
             'duration' => 'required|integer|min:1|max:480', // المدة بين دقيقة و8 ساعات
         ], $messages);
 
+        
         $validated['center_id'] = Auth::user()->center->id;
 
         // إنشاء خدمة جديد

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,43 +9,38 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content />
     <meta property="og:image" content />
-
+ 
     <link rel="stylesheet" href="{{ asset('assets/css/preloader.css')}}" />
     <script src="{{ asset('assets/js/preloader.js')}}"></script>
-
-
+ 
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/nice-select.css')}}" />
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/magnific-popup.css')}}" />
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/slick.css')}}" />
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/aos.css')}}" />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}" />
-    <title>Degmark | Digital Marketplace Template</title>
-    <style>/* Modal Styles */
+    <title>Midmap</title>
+    <style>
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
+            display: none;
+            position: fixed;
+            z-index: 1;
             left: 0;
             top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0,0,0,0.4); /* Fallback color */
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
             padding-top: 60px;
         }
-
-        /* Modal Content */
         .modal-content {
             background-color: #fff;
             margin: 5% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%; /* Adjust size of the modal */
-            max-width: 500px; /* Maximum width */
+            width: 80%;
+            max-width: 500px;
         }
-
-        /* Close Button */
         .close-btn {
             color: #aaa;
             font-size: 28px;
@@ -53,15 +48,15 @@
             float: right;
             cursor: pointer;
         }
-
         .close-btn:hover,
         .close-btn:focus {
             color: black;
             text-decoration: none;
             cursor: pointer;
-        }</style>
+        }
+    </style>
 </head>
-
+ 
 <body id="home2">
     <div id="preloader">
         <div class="preloader-container">
@@ -71,46 +66,8 @@
             <div class="item item-4"></div>
         </div>
     </div>
-
+ 
     <header class="header accent-lightBlue">
-        <div class="h-top-container bg-gray">
-            <div class="container-stretch">
-                <div class="h-top-inner">
-                    <div class="p-left">
-                        <ul class="t-bar-menu">
-                            @if (Route::has('login'))
-                            <nav class="-mx-3 flex flex-1 justify-end">
-                                @auth
-                                    <a
-                                        href="{{ url('/dashboard') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                        Dashboard
-                                    </a>
-                                @else
-                                    <a
-                                        href="{{ route('login') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                         Log in /
-                                    </a>
-
-                                    @if (Route::has('register'))
-                                        <a
-                                            href="{{ route('register') }}"
-                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                        >
-                                            Register
-                                        </a>
-                                    @endif
-                                @endauth
-                            </nav>
-                        @endif
-                         </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="h-bottom-container">
             <div class="container-stretch">
                 <div class="h-bottom-inner">
@@ -129,20 +86,19 @@
                     <div class="p-center">
                         <nav>
                             <ul class="main-nav">
-
-                                <li>
-                                    <a href="/">Home</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('site.centers')}}">Clinics</a>
-                                </li>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="{{ route('site.centers') }}">Clinics</a></li>
                                 <li><a href="/">Blog</a></li>
                                 <li><a href="#Contact">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
                     <div class="p-right">
-
+                        @auth
+                            <a href="{{ url('/dashboard') }}" class="btn btn-s1">Dashboard</a>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-s1">Log in / Register</a>
+                        @endauth
                         <button id="m-nav-open">
                             <i class="fa-solid fa-bars"></i>
                         </button>
@@ -151,8 +107,7 @@
             </div>
         </div>
     </header>
-
-
+ 
     <aside id="m-nav-container">
         <div class="m-nav-inner">
             <button id="m-nav-close">
@@ -162,16 +117,21 @@
                 <img src="{{ asset('assets/images/logos/a1.PNG')}}" alt />
             </div>
             <ul class="main-nav">
-
-                <li><a href="\">Home</a></li>
-                <li><a href="{{route('site.centers')}}">Clinics</a></li>
-                <li><a href="\">Blog</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="{{ route('site.centers') }}">Clinics</a></li>
+                <li><a href="/">Blog</a></li>
                 <li><a href="#Contact">Contact</a></li>
+                <li>
+                    @auth
+                        <a href="{{ url('/dashboard') }}">Dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}">Log in / Register</a>
+                    @endauth
+                </li>
             </ul>
         </div>
     </aside>
-
-
+ 
     <section class="hero-s2 s-padding">
         <div class="container-stretch">
             <div class="row">
@@ -180,29 +140,28 @@
                         <h1 class="h-title">Top-level healthcare services.</h1>
                         <p class="h-desc">
                             A specialized medical team at your service with professionalism.
-                        </p> <form action="{{route('site.centers')}}">
+                        </p>
+                        <form action="{{ route('site.centers') }}">
                             @csrf
-                        <div class="s-bar-s1 accent-lightBlue">
-                            <div class="s-bar-inner">
-
-                                <div class="p-left">
-                                    <select name="category_id">
-                                        <option value="">All Categories</option>
-                                        @foreach ($categories as $category )
-                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                        @endforeach
-
-                                    </select>
-                                    <input type="text" name="search" placeholder="Search your products..." />
-                                </div>
-                                <div class="p-right">
-                                    <button type="submit" class="btn-frm-s2">
-                                        <i class="fa-solid fa-magnifying-glass"></i>Search
-                                    </button>
+                            <div class="s-bar-s1 accent-lightBlue">
+                                <div class="s-bar-inner">
+                                    <div class="p-left">
+                                        <select name="category_id">
+                                            <option value="">All Categories</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <input type="text" name="search" placeholder="Search the right clinic for..." />
+                                    </div>
+                                    <div class="p-right">
+                                        <button type="submit" class="btn-frm-s2">
+                                            <i class="fa-solid fa-magnifying-glass"></i> Search
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
                         <div class="counter-sm">
                             <div class="s-counter">
                                 <p class="number">
@@ -231,8 +190,7 @@
             <img src="{{ asset('assets/images/shapes/hero-2.png')}}" alt />
         </div>
     </section>
-
-
+ 
     <section class="s-padding catagories-sec-s1 accent-lightBlue">
         <div class="container">
             <div class="s-title-wrap">
@@ -242,22 +200,21 @@
             <div class="row">
                 <div class="catagories-sec-inner">
                     @foreach ($categories as $catego)
-                    <div class="i-box-s2" data-aos="fade-up">
-                        <div class="thumb">
-                            <img src="{{ asset('storage/files/' . ($catego->image ?? 'default.png')) }}" alt />
+                        <div class="i-box-s2" data-aos="fade-up">
+                            <div class="thumb">
+                                <img src="{{ asset('storage/files/' . ($catego->image ?? 'default.png')) }}" alt />
+                            </div>
+                            <div class="content">
+                                <h3>{{ $catego->name }}</h3>
+                                <a href="{{ route('site.centers', ['category_id' => $catego->id]) }}" class="f-btn">View All<i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
                         </div>
-                        <div class="content">
-                            <h3>{{$catego->name}}</h3>
-                            <a href="{{ route('site.centers', ['category_id' => $catego->id]) }}" class="f-btn">View All<i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
                     @endforeach
                 </div>
             </div>
         </div>
     </section>
-
-
+ 
     <section class="product-gallery-s1 accent-lightBlue s-padding">
         <div class="container">
             <div class="s-title-wrap">
@@ -266,43 +223,37 @@
             </div>
             <div class="row">
                 @foreach ($centers as $center)
-                <div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up">
-                    <div class="pro-box-s1">
-                        <div class="thumb">
-                            <img src="{{ asset('storage/files/' . $center->center_logo ?? '') }}" alt />
-                            <div class="purchas-preview-wrap">
-                                <a href="{{route('site.center',$center->id)}}" >Preview</a>
-
-                            </div>
-                        </div>
-                        <div class="content">
-                            <p class="p-meta">
-                                By<a class="author"> {{$center->user->name}}
-                                </a>In
-                                <a href="{{ route('site.centers', ['category_id' => $center->category->id]) }}" class="catagory">{{$center->category->name}}</a>
-                            </p>
-                            <h4 class="p-title"><a href="{{route('site.center',$center->id)}}"> {{$center->center_name}}</a></h4>
-                            <div class="download-rating-wrap">
-                                <div class="p-meta">
-                                    <a class="author">{{$center->country->name}}</a> / <a href="{{ route('site.centers', ['city_id' => $center->city->id]) }}" class="catagory">{{$center->city->name}}</a>
-
-
+                    <div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up">
+                        <div class="pro-box-s1">
+                            <div class="thumb">
+                                <img src="{{ asset('storage/files/' . $center->center_logo ?? '') }}" alt />
+                                <div class="purchas-preview-wrap">
+                                    <a href="{{ route('site.center', $center->id) }}">Preview</a>
                                 </div>
-
+                            </div>
+                            <div class="content">
+                                <p class="p-meta">
+                                    By<a class="author"> {{ $center->user->name }}</a> In
+                                    <a href="{{ route('site.centers', ['category_id' => $center->category->id]) }}" class="catagory">{{ $center->category->name }}</a>
+                                </p>
+                                <h4 class="p-title"><a href="{{ route('site.center', $center->id) }}">{{ $center->center_name }}</a></h4>
+                                <div class="download-rating-wrap">
+                                    <div class="p-meta">
+                                        <a class="author">{{ $center->country->name }}</a> /
+                                        <a href="{{ route('site.centers', ['city_id' => $center->city->id]) }}" class="catagory">{{ $center->city->name }}</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
-
                 <div class="t-center view-all">
-                    <a href="{{route('site.centers')}}" class="btn btn-s3">View All</a>
+                    <a href="{{ route('site.centers') }}" class="btn btn-s3">View All</a>
                 </div>
             </div>
         </div>
     </section>
-
-
+ 
     <section class="features-sec-s2 s-padding">
         <div class="container">
             <div class="s-title-wrap">
@@ -343,25 +294,23 @@
             <img src="{{ asset('assets/images/shapes/features2-2.png')}}" alt class="shp-2" />
         </div>
     </section>
-
-
+ 
     <section class="cta-s2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="cta-content">
                         <h2 class="s-title">
-                            <span class="t-light">Top-level healthcare services.</span>A specialized medical team at your service with professionalism.
+                            <span class="t-light">Top-level healthcare services.</span>
+                            A specialized medical team at your service with professionalism.
                         </h2>
-                        <button class="btn btn-s4">View all Clinicses </button>
+                        <a href="{{ route('site.centers') }}" class="btn btn-s4">View all Clinics</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
-
+ 
     <section id="Contact" class="contact-main s-padding">
         <div class="container">
             <div class="row">
@@ -369,13 +318,13 @@
                     <div class="contact-main__info">
                         <h2 class="title">Contact Information</h2>
                         <p class="desc">
-                            Fill the form below or write us .We will try our to help you as soon as possible.
+                            Fill the form below or write us. We will try our best to help you as soon as possible.
                         </p>
                         <div class="row">
                             <div class="contact-boxes-wrap">
                                 <div class="c-box">
                                     <div class="icon">
-                                        <img src="assets/images/icons/phone.svg" alt />
+                                        <img src="{{ asset('assets/images/icons/phone.svg') }}" alt />
                                     </div>
                                     <div class="content">
                                         <h3>Phone</h3>
@@ -385,23 +334,19 @@
                                 </div>
                                 <div class="c-box">
                                     <div class="icon">
-                                        <img src="assets/images/icons/email.svg" alt />
+                                        <img src="{{ asset('assets/images/icons/email.svg') }}" alt />
                                     </div>
                                     <div class="content">
                                         <h3>Email</h3>
-                                        <p><a href="../../cdn-cgi/l/email-protection.html" class="__cf_email__"
-                                                data-cfemail="c185a4acaea4aca0a8ad81a6aca0a8adefa2aeac">[email&#160;protected]</a>
-                                        </p>
-                                        <p><a href="../../cdn-cgi/l/email-protection.html" class="__cf_email__"
-                                                data-cfemail="83e7e6eeecb1e6eee2eaefc3e4eee2eaefade0ecee">[email&#160;protected]</a>
-                                        </p>
+                                        <p>info@midmap.com</p>
+                                        <p>support@midmap.com</p>
                                     </div>
                                 </div>
                                 <div class="c-box map">
                                     <div>
                                         <div class="box">
                                             <div class="icon">
-                                                <img src="assets/images/icons/location.svg" alt />
+                                                <img src="{{ asset('assets/images/icons/location.svg') }}" alt />
                                             </div>
                                             <div class="content">
                                                 <h3>Address</h3>
@@ -448,9 +393,8 @@
                                 </div>
                             </div>
                         </form>
-
                         @if(session('success'))
-                            <div class="alert alert-success">
+                            <div class="alert alert-success mt-3">
                                 {{ session('success') }}
                             </div>
                         @endif
@@ -459,26 +403,26 @@
             </div>
         </div>
     </section>
+ 
     <div id="simpleModal" class="modal">
         <div class="modal-content">
-          <span class="close-btn" onclick="closeModal()">&times;</span>
-          <p style="color: rgb(8, 187, 32)">{{ session('success') }}</p>
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <p style="color: rgb(8, 187, 32)">{{ session('success') }}</p>
         </div>
-      </div>
+    </div>
+ 
     <footer class="footer-s1 footer-s2">
         <div class="container">
             <div class="footer-subs-s2">
                 <div class="footer-sub-s2-inner">
                     <h3 class="s-title" data-aos="fade-up">Subscribe Now</h3>
                     <p data-aos="fade-up" data-aos-delay="50">
-                        Subscribe to get the latest themes, templates, Photos, Audio and offer information. Don't
-                        worry, we won't send spam!
+                        Subscribe to get the latest themes, templates, Photos, Audio and offer information. Don't worry, we won't send spam!
                     </p>
                     <div class="subs-form-s1" data-aos="fade-up" data-aos-delay="50">
                         <input type="text" placeholder="Enter your email address" />
                         <button class="btn-frm" type="submit">Subscribe</button>
                     </div>
-                    -
                 </div>
             </div>
             <div class="footer-m-wrap">
@@ -487,32 +431,32 @@
                         <img src="{{ asset('assets/images/logos/a1.PNG')}}" alt />
                     </div>
                     <ul class="f-menu">
-                        <li><a href="products.html">Track Order</a></li>
-                        <li><a href="products.html">Delivery & Returns</a></li>
-                        <li><a href="products.html">Warranty</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Delivery & Returns</a></li>
+                        <li><a href="#">Warranty</a></li>
                     </ul>
                 </div>
                 <div class="f-widget widget-2">
                     <h4 class="w-title">About us</h4>
                     <ul class="f-menu">
-                        <li><a href="profile.html">Rave’s Story</a></li>
-                        <li><a href="profile.html">Work With Us</a></li>
-                        <li><a href="profile.html">Coporate News</a></li>
-                        <li><a href="profile.html">Investors</a></li>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Work With Us</a></li>
+                        <li><a href="#">Corporate News</a></li>
+                        <li><a href="#">Investors</a></li>
                     </ul>
                 </div>
                 <div class="f-widget widget-3">
-                    <h4 class="w-title">Online Shop</h4>
+                    <h4 class="w-title">Services</h4>
                     <ul class="f-menu">
-                        <li><a href="author.html">Website design</a></li>
-                        <li><a href="author.html">App Design</a></li>
-                        <li><a href="author.html">Ui/Ux Desgin</a></li>
-                        <li><a href="author.html">Seo Marketing</a></li>
+                        <li><a href="#">Medical Booking</a></li>
+                        <li><a href="#">Clinic Management</a></li>
+                        <li><a href="#">Patient Records</a></li>
+                        <li><a href="#">Appointments</a></li>
                     </ul>
                 </div>
                 <div class="f-widget widget-4">
                     <h4 class="w-title">Market Analysis</h4>
-                    <p>Save time with preconfigured find to a environments that alreadyintod.</p>
+                    <p>Save time with preconfigured environments that are already set up for you.</p>
                     <div class="footer-stats">
                         <div class="s-stat">
                             <h4 class="counter-number-lg">333313</h4>
@@ -530,17 +474,11 @@
             <div class="f-copy-right">
                 <div class="p-left">
                     <ul class="s-links">
-                        <li>
-                            <a href="https://www.facebook.com/QuomodoSoft"><i class="fa-brands fa-instagram"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/QuomodoSoft"><i class="fa-brands fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/QuomodoSoft"><i class="fa-brands fa-youtube"></i></a>
-                        </li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
                     </ul>
-                    <p class="cr-text">©2022 Quomodosoft All rights reserved</p>
+                    <p class="cr-text">©2024 Midmap All rights reserved</p>
                 </div>
                 <div class="p-right">
                     <a href="#">
@@ -550,8 +488,7 @@
             </div>
         </div>
     </footer>
-
-
+ 
     <script src="{{ asset('assets/js/vendor/font-awesome.min.js')}}"></script>
     <script src="{{ asset('assets/js/vendor/jquery.min.js')}}"></script>
     <script src="{{ asset('assets/js/vendor/jquery.nice-select.min.js')}}"></script>
@@ -566,19 +503,15 @@
     <script src="{{ asset('assets/js/plugin.js')}}"></script>
     <script src="{{ asset('assets/js/main.js')}}"></script>
     <script>
-    function openModal() {
-        document.getElementById('simpleModal').style.display = "block";
-    }
-
-    function closeModal() {
-        document.getElementById('simpleModal').style.display = "none";
-    }
-
-    // Show modal if success message exists
-    @if(session('success'))
-        openModal();
-    @endif
+        function openModal() {
+            document.getElementById('simpleModal').style.display = "block";
+        }
+        function closeModal() {
+            document.getElementById('simpleModal').style.display = "none";
+        }
+        @if(session('success'))
+            openModal();
+        @endif
     </script>
 </body>
-
 </html>

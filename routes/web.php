@@ -90,3 +90,4 @@ Route::get('/center/{ID}', [FrontController::class, 'center'])->name('site.cente
 Route::post('/order', [FrontController::class, 'order'])->name('site.order');
 Route::post('/contact', [FrontController::class, 'storem'])->name('contact.store');
 Route::get('/get-cities/{countryId}', [FrontController::class, 'getCities']);
+Route::post('/rating', [App\Http\Controllers\RatingController::class, 'store'])->name('rating.store');
